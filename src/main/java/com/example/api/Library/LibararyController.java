@@ -20,24 +20,27 @@ public class LibararyController {
 
     @GetMapping
     public List<Libarary> getbook(){
+
         return libararySarvice.getBooks();
     }
 
     @PostMapping
     public void addBook(@RequestBody Libarary book) {
+
         libararySarvice.addBooks(book);
     }
 
     @DeleteMapping(path = "{bookid}")
     public void deleteBook(@PathVariable("bookid") Long bookid) {
+
         libararySarvice.deleteBook(bookid);
     }
 
     @PutMapping(path = "{bookid}")
     public void updateBookName(
             @PathVariable("bookid") Long bookid,
-            @RequestParam String bookName
+            @RequestParam String bookname
     ) {
-        libararySarvice.updateBookName(bookid, bookName);
+        libararySarvice.updateBookName(bookid, bookname);
     }
 }

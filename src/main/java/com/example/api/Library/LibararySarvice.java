@@ -26,7 +26,7 @@ public class LibararySarvice {
     public void addBooks(Libarary book){
         Optional<Libarary> bookByPublisher = libararyRepository.findBookByPublisher(book.getPublisher());
         if (bookByPublisher.isPresent()) {
-            throw new IllegalStateException("Publisher present for another book");
+            throw new IllegalStateException("Publisher present");
         }
         libararyRepository.save(book);
     }
@@ -34,16 +34,16 @@ public class LibararySarvice {
     public void deleteBook(Long bookid) {
         boolean exists = libararyRepository.existsById(bookid);
         if (!exists) {
-            throw new IllegalStateException(bookid + "Book not exists");
+            throw new IllegalStateException("Book not exists");
         }
         libararyRepository.deleteById(bookid);
     }
     @Transactional
-    public void updateBookName(Long bookid, String bookName) {
+    public void updateBookName(Long bookid, String bookname) {
         Libarary book = libararyRepository.findById(bookid)
-                .orElseThrow(() -> new IllegalStateException( bookid + " Booknot exists"));
-        if (bookName != null && bookName.length() > 0 && !Objects.equals(book.getBook(), bookName)) {
-            book.setBook(bookName);
+                .orElseThrow(() -> new IllegalStateException(" Booknot exists"));
+        if (bookname != null && bookname.length() > 0 && !Objects.equals(book.getBook(), bookname)) {
+            book.setBook(bookname);
         }
     }
 }
