@@ -33,16 +33,19 @@ public class BookController {
 
     @GetMapping(path = "booksList")
     public List<Book> getbooksList() {
+
         return bookRepository.findAll();
     }
 
     @GetMapping(path = "authorsList")
     public List<Author> getauthorsList() {
+
         return authorRepository.findAll();
     }
 
     @GetMapping(path = "publishersList")
-    public List<Publisher> getpublishersList() {
+    public List<Publisher> getpublishersList()
+    {
         return publisherRepository.findAll();
     }
 
