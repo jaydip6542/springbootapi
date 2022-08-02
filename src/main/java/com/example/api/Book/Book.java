@@ -1,8 +1,7 @@
 package com.example.api.Book;
 
-import com.example.api.Book.Author.Author;
-import com.example.api.Book.Publisher.Publisher;
-
+import com.example.demo.Book.Author.Author;
+import com.example.demo.Book.Publisher.Publisher;
 
 import javax.persistence.*;
 
@@ -21,7 +20,7 @@ public class Book {
             generator = "book_sequence"
     )
 
-    @Column(name = "bookid")
+        @Column(name = "bookid")
     private Long id;
     private String bookName;
 
